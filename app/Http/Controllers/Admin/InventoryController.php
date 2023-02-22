@@ -147,24 +147,25 @@ class InventoryController extends Controller
     {
         // dd($request->all());
         $property = Property::findOrFail($property_id);
-        // $request->validate([
-        //     'property' => ['required', Rule::in(Property::PROPERTY_EXTRAS['properties'])],
-        //     'area_id' => 'required|exists:areas,id',
-        //     'area_phase_id' => 'required|exists:area_phases,id',
-        //     'reference_name' => 'required|string|min:2|max:100',
-        //     'agency_name' => 'required|string|min:2|max:100',
-        //     'item_condition' => 'required|string|min:2|max:100',
-        //     'item_status' => ['required', Rule::in(Property::PROPERTY_EXTRAS['item_statuses'])],
-        //     'size' => 'required',
-        //     'size_unit' => ['required', Rule::in(Property::PROPERTY_EXTRAS['size_units'])],
-        //     'extra_land' => 'nullable',
-        //     'orientation' => ['required', Rule::in(Property::PROPERTY_EXTRAS['orientations'])],
-        //     'sector' => 'required',
-        //     'street_number' => 'required',
-        //     'price' => 'required',
-        //     'category' => ['required', Rule::in(Property::PROPERTY_EXTRAS['categories'])],
-        //     'reference_mobile' => 'nullable|size:11',
-        // ]);
+        $request->validate([
+            'property' => ['required', Rule::in(Property::PROPERTY_EXTRAS['properties'])],
+            'area_id' => 'required|exists:areas,id',
+            'area_phase_id' => 'required|exists:area_phases,id',
+            // 'reference_name' => 'required|string|min:2|max:100',
+            'agency_name' => 'required|string|min:2|max:100',
+            'item_condition' => 'required|string|min:2|max:100',
+            'item_status' => ['required', Rule::in(Property::PROPERTY_EXTRAS['item_statuses'])],
+            'size' => 'required',
+            'size_unit' => ['required', Rule::in(Property::PROPERTY_EXTRAS['size_units'])],
+            'extra_land' => 'nullable',
+            'orientation' => ['required', Rule::in(Property::PROPERTY_EXTRAS['orientations'])],
+            'sector' => 'required',
+            'street_number' => 'required',
+            'price' => 'required',
+            // 'category' => ['required', Rule::in(Property::PROPERTY_EXTRAS['categories'])],
+            'category' => 'required|array',
+            'reference_mobile' => 'nullable|size:11',
+        ]);
 
         $property->property = $request->input("property");
         $property->area_id = $request->input("area_id");
@@ -266,4 +267,3 @@ class InventoryController extends Controller
     
   
 }
-
