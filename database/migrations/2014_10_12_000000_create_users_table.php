@@ -18,10 +18,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone')->nullable();
+            $table->string('file')->default(1);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId("parent_id")->nullable()->comment("Related with same table.");
+            $table->foreignId("parent_id")->nullable()->comment("Related with same table.")->onDelete('cascade')->onUpdate('cascade');
             $table->enum("type", User::USER_TYPES);
             $table->string('designation')->nullable();
             $table->string('image')->nullable();
