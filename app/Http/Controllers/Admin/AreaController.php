@@ -126,7 +126,7 @@ class AreaController extends Controller
         $area = Area::findOrFail($area_id);
         AreaPhase::where("area_id", $area->id)->delete();
         $area->delete();
-        return redirect(url("/admin/areas"))->with("success", "User deleted successfully");
+        return redirect(url("/admin/areas"))->with("success", "Area deleted successfully");
     }
     
     public function get_phases(Request $request){
@@ -134,5 +134,16 @@ class AreaController extends Controller
          $phases = AreaPhase::where('area_id',$request->area_id)->get();
         $product_page = View::make('ajax_phase', compact('phases'))->render();
         return $product_page;
+    }
+    
+    public function delete($area_id)
+    {
+        // dd('heh');
+        // $area = Area::findOrFail($area_id);
+        $var = AreaPhase::where("id", $area_id);
+        // dd($var);
+        $var->delete();
+        // dd('here');
+        return redirect()->back()->with("success", "Phase deleted successfully");
     }
 }

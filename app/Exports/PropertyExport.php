@@ -83,5 +83,6 @@ class PropertyExport implements FromCollection, WithHeadings
                 'Purchase Status' ,
             ];
         }
+
     }
 

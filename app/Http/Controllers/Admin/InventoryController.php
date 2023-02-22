@@ -259,6 +259,10 @@ class InventoryController extends Controller
 
         return Excel::download(new PropertyExport($user_data), 'user-data.xlsx');
     }
+    public function export_all() 
+    {
+        return Excel::download(new UsersExport, 'data.xlsx');
+    }
     
   
 }

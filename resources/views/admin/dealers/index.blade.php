@@ -131,15 +131,7 @@ border-radius: 8px; color: white;">
                                                             @endif</td>
                                 <td class=" pt-3">
                                     <div class="d-flex  gap-2">
-                                        <div>
-                                            <a href="{{ url('details/' . $user->id) }}"><button class="btn"
-                                                    style="background: #998F8F; border-radius: 6px;">
-                                                    <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22.4547 7.995C21.5726 5.71324 20.0412 3.73996 18.0498 2.31906C16.0584 0.898167 13.6943 0.0919297 11.2497 0C8.80507 0.0919297 6.44097 0.898167 4.44958 2.31906C2.45819 3.73996 0.926802 5.71324 0.0446809 7.995C-0.0148936 8.15978 -0.0148936 8.34022 0.0446809 8.505C0.926802 10.7868 2.45819 12.76 4.44958 14.1809C6.44097 15.6018 8.80507 16.4081 11.2497 16.5C13.6943 16.4081 16.0584 15.6018 18.0498 14.1809C20.0412 12.76 21.5726 10.7868 22.4547 8.505C22.5143 8.34022 22.5143 8.15978 22.4547 7.995V7.995ZM11.2497 15C7.27468 15 3.07468 12.0525 1.55218 8.25C3.07468 4.4475 7.27468 1.5 11.2497 1.5C15.2247 1.5 19.4247 4.4475 20.9472 8.25C19.4247 12.0525 15.2247 15 11.2497 15Z" fill="white"/>
-<path d="M11.2497 3.75C10.3597 3.75 9.48964 4.01392 8.74962 4.50839C8.00959 5.00285 7.43282 5.70566 7.09222 6.52792C6.75163 7.35019 6.66251 8.25499 6.83615 9.12791C7.00978 10.0008 7.43836 10.8026 8.0677 11.432C8.69704 12.0613 9.49886 12.4899 10.3718 12.6635C11.2447 12.8372 12.1495 12.7481 12.9718 12.4075C13.794 12.0669 14.4968 11.4901 14.9913 10.7501C15.4858 10.01 15.7497 9.14002 15.7497 8.25C15.7497 7.05653 15.2756 5.91193 14.4317 5.06802C13.5877 4.22411 12.4432 3.75 11.2497 3.75ZM11.2497 11.25C10.6563 11.25 10.0763 11.0741 9.58297 10.7444C9.08962 10.4148 8.70511 9.94623 8.47804 9.39805C8.25098 8.84987 8.19157 8.24667 8.30733 7.66473C8.42308 7.08279 8.7088 6.54824 9.12836 6.12868C9.54792 5.70912 10.0825 5.4234 10.6644 5.30764C11.2464 5.19189 11.8496 5.2513 12.3977 5.47836C12.9459 5.70542 13.4144 6.08994 13.7441 6.58329C14.0737 7.07664 14.2497 7.65666 14.2497 8.25C14.2497 9.04565 13.9336 9.80871 13.371 10.3713C12.8084 10.9339 12.0453 11.25 11.2497 11.25Z" fill="white"/>
-</svg>
-</button></a>
-                                        </div>
+                                    
                                         <div style="margin-left: 2px;">
                                             <a href="{{ url('admin/dealers/' . $user->id . '/edit') }}"><button
                                                     class="btn "
@@ -158,7 +150,7 @@ border-radius: 8px; color: white;">
                                         </div>
                                         <div style="margin-left: 2px;">
                                             @if ($user->is_active == 1)
-                                                <a href="{{ url('in-active') }}/{{ $user->id }}"><button
+                                                <button data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->id }}"
                                                         class="btn"
                                                         style="background: linear-gradient(180deg, #E60606 0%, #B10707 91.67%); border-radius: 6px;">
                                                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +158,25 @@ border-radius: 8px; color: white;">
 </svg>
 
 
-                                                    </button></a>
+                                                    </button>
+
+                                                    <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Option</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to Delete it?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <a href="{{ url('in-active') }}/{{ $user->id }}"> <button type="button" class="btn btn-primary">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
                                             @endif
                                         </div>
                                     </div>

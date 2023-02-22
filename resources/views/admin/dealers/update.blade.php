@@ -58,8 +58,7 @@ line-height: 10px;
                                 required="true" />
                         </div>
                         <div class="col-6 mb-2 px-4">
-                            <label class="form-label">Password:</label>
-                            <input type="password" name="password" value="********" class="form-control" disabled>
+                            <x-forms.input name="password" type="password" title="Password:" :inputValue="$user->password" required="true" />
                         </div>
                     </div>
                     <div class="row">

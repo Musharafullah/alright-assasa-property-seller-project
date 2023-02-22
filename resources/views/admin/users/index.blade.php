@@ -100,10 +100,13 @@ border-radius: 8px; color: white;"> <i class="fa-solid fa-plus mx-1"></i> Add Ne
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
-                @if ($user->is_active==1)
-                <tr>
-                    <td class=" pt-4">{{ $loop->iteration }}</td>
+                @php
+                $i=0;
+                @endphp
+            @foreach ($users as $user)
+                        @if ($user->is_active == 1)
+                            <tr>
+                                <td class=" pt-4">@php $i++; echo $i;  @endphp</td>
                     <td>
                         <div class="d-flex align-items-center flex-nowrap gap-2" style="white-space: nowrap">
                             @if ($user->image_url)
@@ -177,7 +180,7 @@ border-radius: 8px; color: white;"> <i class="fa-solid fa-plus mx-1"></i> Add Ne
                             </div>
                             <div style="margin-left: 2px;">
                                 @if ($user->is_active==1)
-                                <a href="{{ url('in-active') }}/{{ $user->id }}"><button class="btn" style="background: linear-gradient(180deg, #E60606 0%, #B10707 91.67%); border-radius: 6px;">
+                                <button class="btn" style="background: linear-gradient(180deg, #E60606 0%, #B10707 91.67%); border-radius: 6px;" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $user->id }}">
                                 <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.499359" width="28" height="28.5" rx="4" fill="url(#paint0_linear_803_1138)"/>
 <path d="M12.4994 7.5H16.4994C16.4994 6.96957 16.2886 6.46086 15.9136 6.08579C15.5385 5.71071 15.0298 5.5 14.4994 5.5C13.9689 5.5 13.4602 5.71071 13.0851 6.08579C12.7101 6.46086 12.4994 6.96957 12.4994 7.5ZM10.9994 7.5C10.9994 7.04037 11.0899 6.58525 11.2658 6.16061C11.4417 5.73597 11.6995 5.35013 12.0245 5.02513C12.3495 4.70012 12.7353 4.44231 13.16 4.26642C13.5846 4.09053 14.0397 4 14.4994 4C14.959 4 15.4141 4.09053 15.8388 4.26642C16.2634 4.44231 16.6492 4.70012 16.9742 5.02513C17.2992 5.35013 17.557 5.73597 17.7329 6.16061C17.9088 6.58525 17.9994 7.04037 17.9994 7.5H23.7494C23.9483 7.5 24.139 7.57902 24.2797 7.71967C24.4203 7.86032 24.4994 8.05109 24.4994 8.25C24.4994 8.44891 24.4203 8.63968 24.2797 8.78033C24.139 8.92098 23.9483 9 23.7494 9H22.4294L21.2594 21.111C21.1696 22.039 20.7374 22.9002 20.047 23.5268C19.3567 24.1534 18.4577 24.5004 17.5254 24.5H11.4734C10.5412 24.5001 9.64246 24.153 8.95231 23.5265C8.26216 22.8999 7.83009 22.0388 7.74036 21.111L6.56936 9H5.24936C5.05045 9 4.85968 8.92098 4.71903 8.78033C4.57838 8.63968 4.49936 8.44891 4.49936 8.25C4.49936 8.05109 4.57838 7.86032 4.71903 7.71967C4.85968 7.57902 5.05045 7.5 5.24936 7.5H10.9994ZM12.9994 12.25C12.9994 12.0511 12.9203 11.8603 12.7797 11.7197C12.639 11.579 12.4483 11.5 12.2494 11.5C12.0504 11.5 11.8597 11.579 11.719 11.7197C11.5784 11.8603 11.4994 12.0511 11.4994 12.25V19.75C11.4994 19.9489 11.5784 20.1397 11.719 20.2803C11.8597 20.421 12.0504 20.5 12.2494 20.5C12.4483 20.5 12.639 20.421 12.7797 20.2803C12.9203 20.1397 12.9994 19.9489 12.9994 19.75V12.25ZM16.7494 11.5C16.9483 11.5 17.139 11.579 17.2797 11.7197C17.4203 11.8603 17.4994 12.0511 17.4994 12.25V19.75C17.4994 19.9489 17.4203 20.1397 17.2797 20.2803C17.139 20.421 16.9483 20.5 16.7494 20.5C16.5504 20.5 16.3597 20.421 16.219 20.2803C16.0784 20.1397 15.9994 19.9489 15.9994 19.75V12.25C15.9994 12.0511 16.0784 11.8603 16.219 11.7197C16.3597 11.579 16.5504 11.5 16.7494 11.5ZM9.23336 20.967C9.2873 21.5236 9.5466 22.0403 9.96073 22.4161C10.3749 22.792 10.9141 23.0001 11.4734 23H17.5254C18.0846 23.0001 18.6239 22.792 19.038 22.4161C19.4521 22.0403 19.7114 21.5236 19.7654 20.967L20.9234 9H8.07536L9.23336 20.967Z" fill="white"/>
@@ -189,8 +192,27 @@ border-radius: 8px; color: white;"> <i class="fa-solid fa-plus mx-1"></i> Add Ne
 </defs>
 </svg>
 
-                                </button></a>
-                             
+                                </button>
+                        
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to Delete it?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <a href="{{ url('in-active') }}/{{ $user->id }}"> <button type="button" class="btn btn-primary">Delete</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
                                 @endif
                                
                             </div>

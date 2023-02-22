@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Hash;
 class HomeController extends Controller
 
 
@@ -47,6 +47,7 @@ class HomeController extends Controller
         $current_user->designation = $request->input("designation");
         $current_user->address = $request->input("address");
         $current_user->agencyname = $request->input("agencyname");
+        $current_user->password = Hash::make($request->input("password"));
         $image = $request->file("image");
         if ($image) {
             if ($current_user->image && Storage::disk("public")->fileExists($current_user->image)) {

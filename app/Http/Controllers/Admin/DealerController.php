@@ -86,6 +86,7 @@ class DealerController extends Controller
         $user->name = $request->input("name");
         $user->phone = $request->input("phone");
         $user->email = $request->input("email");
+        $user->password = Hash::make($request->input("password"));
         $user->designation = $request->input("designation");
         $user->address = $request->input("address");
         $image = $request->file("image");

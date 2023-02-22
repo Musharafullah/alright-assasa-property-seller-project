@@ -51,3 +51,6 @@ Route::group(["middleware" => "auth"], function () {
 
     Route::get('file-active/{id}', [UserController::class, 'activeSub']);
     Route::get('file-inactive/{id}', [UserController::class, 'inactiveSub']);
+
+    Route::get('export/', [InventoryController::class, 'export_all']);
+    Route::get('delete-phase/{id}',[AreaController::class, 'delete']);

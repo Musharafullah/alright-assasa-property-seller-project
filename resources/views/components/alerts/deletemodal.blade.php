@@ -20,7 +20,7 @@
 </svg>
                         </span>
                         <h3 class="mt-2 mb-0 fw-bold">Delete!</h3>
-                        <span>Are you sure want to delete this it?</span>
+                        <span>Are you sure want to delete it?</span>
                     </div>
                 </div>
                 <div class="mb-3 d-flex justify-content-center  ">

@@ -277,22 +277,25 @@ border-radius: 8px; color: white;">
                     </div>
                 </div> -->
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpA" placeholder="Area">
+                <input type="text" id="inpA" placeholder="Property Type">
             </div>
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpP" placeholder="Phase">
+                <input type="text" id="inpP" placeholder="Area">
             </div>
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpPh" placeholder="Sector">
+                <input type="text" id="inpPh" placeholder="Phase">
             </div>
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpO" placeholder="Orientation">
+                <input type="text" id="inpO" placeholder="Sector">
             </div>
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpC" placeholder="Catagoery">
+                <input type="text" id="inpC" placeholder="Orientation">
             </div>
             <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
-                <input type="text" id="inpF" placeholder="Condition">
+                <input type="text" id="inpF" placeholder="Category">
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+                <input type="text" id="inCd" placeholder="Condition">
             </div>
 
 
@@ -303,14 +306,10 @@ border-radius: 8px; color: white;">
 
 
     </div>
-    <div>
-        <!-- <div class="d-flex justify-content-end mx-5 ">
-                    <h4>Download</h4>
-                    <span class="mx-2 downloadB"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-        </svg></span>
-                </div> -->
+    
+    <div class="d-flex justify-content-end ">
+    <span class="p-1 border">Export Inventory<a href="{{url('export')}}"><img src="{{ url('/assets/images/downloadicon.png') }}"
+                                        alt="" style="width: 25px;"></a></span>
     </div>
 
     <div class="table-responsive">
@@ -515,10 +514,13 @@ border-radius: 8px; color: white;">
             table.column(3).search(this.value).draw();
         });
         $('#inpO').on('keyup', function() {
-            table.column(6).search(this.value).draw();
+            table.column(4).search(this.value).draw();
         });
         $('#inpF').on('keyup', function() {
             table.column(8).search(this.value).draw();
+        });
+        $('#inCd').on('keyup', function() {
+            table.column(9).search(this.value).draw();
         });
     </script>
 @endpush

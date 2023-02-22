@@ -41,13 +41,11 @@
 
                     <div class="row">
                         <div class="col-6 mb-2 px-4">
-                            <label for="exampleInputEmail" class="form-label">Email
-                                Address:</label>
-                            <input type="email" name='email' class="form-control" id="exampleInputEmail" value="{{ $current_user['email'] }}" readonly>
+    
+                            <x-forms.input name="email" type="email" title="Email Address:" :inputValue="$current_user->email" required="true" />
                         </div>
                         <div class="col-6 mb-2 px-4">
-                            <label for="exampleInputPassword" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="exampleInputPassword" value="********" readonly>
+                            <x-forms.input name="password" type="password" title="Password:" :inputValue="$current_user->password" required="true" />
                         </div>
                     </div>
 
