@@ -151,7 +151,7 @@ class InventoryController extends Controller
             'property' => ['required', Rule::in(Property::PROPERTY_EXTRAS['properties'])],
             'area_id' => 'required|exists:areas,id',
             'area_phase_id' => 'required|exists:area_phases,id',
-            // 'reference_name' => 'required|string|min:2|max:100',
+            'client_name' => 'required|string|min:2|max:100',
             'agency_name' => 'required|string|min:2|max:100',
             'item_condition' => 'required|string|min:2|max:100',
             'item_status' => ['required', Rule::in(Property::PROPERTY_EXTRAS['item_statuses'])],
@@ -166,7 +166,7 @@ class InventoryController extends Controller
             'category' => 'required|array',
             'reference_mobile' => 'nullable|size:11',
         ]);
-
+        
         $property->property = $request->input("property");
         $property->area_id = $request->input("area_id");
         $property->area_phase_id = $request->input("area_phase_id");
@@ -185,7 +185,7 @@ class InventoryController extends Controller
         $property->reference_mobile = $request->input("client_mobile");
 
         $property->save();
-
+        
         return redirect(url("/admin/inventory"))->with("success", "Inventory updated successfully");
     }
 

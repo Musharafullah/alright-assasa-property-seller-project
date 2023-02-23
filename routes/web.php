@@ -47,7 +47,7 @@ Route::group(["middleware" => "auth"], function () {
     Route::get('in-active/{id}', [UserController::class, 'isActive']);
     Route::get('/activitise', [HomeController::class, 'index']);
     Route::get('/export-data/{id}', [InventoryController::class, 'export']);
-   
+    Route::get('export/', [InventoryController::class, 'export_all']);
     Route::get('details/{id}', [DealerController::class, 'details']);
     Route::get('user/{id}', [UserController::class, 'user']);
 });
@@ -58,5 +58,5 @@ Route::group(["middleware" => "auth"], function () {
     Route::get('file-active/{id}', [UserController::class, 'activeSub']);
     Route::get('file-inactive/{id}', [UserController::class, 'inactiveSub']);
 
-    Route::get('export/', [InventoryController::class, 'export_all']);
+    
     Route::get('delete-phase/{id}',[AreaController::class, 'delete']);

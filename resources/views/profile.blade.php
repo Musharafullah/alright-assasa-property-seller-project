@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-6 mb-2 px-4">
     
-                            <x-forms.input name="email" type="email" title="Email Address:" :inputValue="$current_user->email" required="true" />
+                            <x-forms.input name="email" type="email" title="Email Address:" :inputValue="$current_user->email" required="true" readonly="true" />
                         </div>
                         <div class="col-6 mb-2 px-4">
                             <x-forms.input name="password" type="password" title="Password:" :inputValue="$current_user->password" required="true" />

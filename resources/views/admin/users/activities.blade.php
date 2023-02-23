@@ -101,10 +101,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $sr = 1;
+                    @endphp
                     @foreach ($users as $user)
                     @if ($user->is_active==1)
                         <tr>
-                            <td class=" pt-4">{{ $loop->iteration }}</td>
+                            <td class=" pt-4">{{ $sr++ }}</td>
                             <td>
                                 
                                 <div class="d-flex align-items-center flex-nowrap gap-2" style="white-space: nowrap">

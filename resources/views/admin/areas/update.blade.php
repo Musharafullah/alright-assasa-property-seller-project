@@ -59,13 +59,14 @@ line-height: 10px;
                     <div class="row">
                         <div class="col-6 mb-2 px-4">
                             <label for="exampleInputArea" class="form-label">Area Phases:</label>
+                            <button onclick="addNewPhase()" class="btn btn-info" type="button"> <i class="fas fa-plus"></i> </button>
                             <div id="phases-array" class="d-flex flex-column gap-4">
                                 @foreach ($area->phases as $phase)
                                     @if ($loop->first)
                                         <div class="d-flex align-items-center gap-4">
                                             <input id="deleted" type="hidden" name="phases_id[]" value="{{ $phase->id }}">
                                             <input type="text" name='phases[]' value="{{ $phase->title }}" class="form-control" required>
-                                            <button onclick="addNewPhase()" class="btn btn-info" type="button"> <i class="fas fa-plus"></i> </button>
+                                            
                                             <button onclick="$(this).parent().remove()"
                                                         class="btn"
                                                         style="background: linear-gradient(180deg, #E60606 0%, #B10707 91.67%); border-radius: 6px;">

@@ -331,17 +331,18 @@ border-radius: 8px; color: white;">
 
     </div>
     
+        <a href="{{ url('export') }}" class="btn btn-success" >Export Inventory</a><br><br>
+    
    
 <div class="container">
+    
     <div class="table-responsive ">
    
 
         <table class="table-striped table-light table  table-responsive  " id="example"
-            style="border: 1px solid #998F8F; border-radius: 7px;">
-            <div class="d-flex justify-content-end expdiv">
-    <span class="p-1 border">Export Inventory<a href="{{url('export')}}"><img src="{{ url('/assets/images/downloadicon.png') }}"
-                                        alt="" style="width: 25px;"></a></span>
-    </div>
+            style="border: 1px solid #998F8F; border-radius: 7px;"></div>
+           
+   
             <thead>
                 <tr>
                     <th
