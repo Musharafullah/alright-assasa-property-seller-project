@@ -8,7 +8,10 @@
         .newSelect {
             background: #F8F8F8;
             border-radius: 20px;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25)
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+            display:flex;
+            flex-direction:row;
+            padding:10px
         }
 
         .newSelect select {
@@ -41,6 +44,12 @@
         .dataTables_filter {
             display: none !important;
         }
+        .dataTables_length select{
+            margin-bottom:15px
+        }
+        .expdiv{
+            margin-bottom:-34px
+        }
 
         @media only screen and (max-width: 768px) {
 
@@ -72,6 +81,21 @@
             .smallboxinventory div {
                 width: 96%
             }
+            .smallboxinventory123{
+                margin-top:10px !important;
+            }
+            .newSelect {
+            
+            flex-direction:column;
+            justify-content:center
+          
+        }
+        .newSelect input {
+            
+            margin-top:10px;
+            margin-left:20px
+          
+        }
         }
 
         @media only screen and (max-width: 1300px) {
@@ -126,7 +150,7 @@ border-radius: 8px; color: white;">
             <div class="col-12 col-lg-8 col-sm-12">
                 <div class="row gx-3" id="cardcolor">
                     @foreach ($areas_inventory as $count_area)
-                        <div class="col-md-3 col-sm-6 col-12  smallboxinventory ">
+                        <div class="col-md-3 col-sm-6 col-6   smallboxinventory ">
                             <div class="d-flex align-items-center flex-column justify-center"
                                 style="padding-block: 2rem; background-color: #F4F5FA;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);border-radius: 8px;">
                                 <p style="font-size: 40px; font-weight: 600;">0{{ $count_area['inventory_count'] }}</p>
@@ -159,9 +183,9 @@ border-radius: 8px; color: white;">
 
                             </div> -->
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 ">
                         <div class="row   ">
-                            <div class="col-md-6 smallboxinventory    d-block" style="">
+                            <div class="col-md-6 col-sm-6 col-6 smallboxinventory    d-block" style="">
                                 <div class="mt-2"
                                     style="padding: 5px; background-color:  #FFA6A6;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);border-radius: 8px; text-align: center;">
                                     @php
@@ -185,7 +209,7 @@ border-radius: 8px; color: white;">
                                     <span style="color: 998F8F !important; font-size: 16px;  " class="">Flat</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 smallboxinventory1    d-block" style="">
+                            <div class="col-md-6 col-sm-6 col-6 smallboxinventory1    d-block" style="">
                                 <div class="mt-2"
                                     style="padding: 5px; background-color:  #C8FFA6;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);border-radius: 8px; text-align: center;">
                                     @php
@@ -221,7 +245,7 @@ border-radius: 8px; color: white;">
         </div>
 
 
-        <div class="row mx-3 mb-3 py-3 newSelect">
+        <div class=" mx-3 mb-3 py-3 newSelect">
             <!-- <div class="col-md-12 d-flex  nCol">
                     <div class="sec1 d-flex ms-4">
                     <div class=" d-flex flex-column myCol  ">
@@ -276,25 +300,25 @@ border-radius: 8px; color: white;">
                         </div>
                     </div>
                 </div> -->
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpA" placeholder="Property Type">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpP" placeholder="Area">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpPh" placeholder="Phase">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpO" placeholder="Sector">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpC" placeholder="Orientation">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inpF" placeholder="Category">
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-2 mb-2">
+            <div class="">
                 <input type="text" id="inCd" placeholder="Condition">
             </div>
 
@@ -307,15 +331,18 @@ border-radius: 8px; color: white;">
 
     </div>
     
-    <div class="d-flex justify-content-end ">
-    <span class="p-1 border">Export Inventory<a href="{{url('export')}}"><img src="{{ url('/assets/images/downloadicon.png') }}"
-                                        alt="" style="width: 25px;"></a></span>
-    </div>
-
-    <div class="table-responsive">
+        <a href="{{ url('export') }}" class="btn btn-success" >Export Inventory</a><br><br>
+    
+   
+<div class="container">
+    
+    <div class="table-responsive ">
+   
 
         <table class="table-striped table-light table  table-responsive  " id="example"
-            style="border: 1px solid #998F8F; border-radius: 7px;">
+            style="border: 1px solid #998F8F; border-radius: 7px;"></div>
+           
+   
             <thead>
                 <tr>
                     <th
@@ -464,6 +491,7 @@ border-radius: 8px; color: white;">
                 style="border: 1px solid #998F8F; border-radius: 7px;">
 
             </table>
+    </div>
     </div>
     </div>
 @endsection

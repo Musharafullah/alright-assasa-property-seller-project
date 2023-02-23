@@ -13,6 +13,16 @@
     table{
         border: 12px solid #F4F5FA !important;
     }
+    .mySpan:nth-child(even) {
+  /* change background color to blue */
+  background-color: blue !important;
+  
+}
+.mySpan:nth-child(odd) {
+  /* change background color to blue */
+ 
+  background-color: #68E089
+}
     @media only screen and (max-width: 640px){
 	/*Big smartphones [426px -> 600px]*/
     .sIcon
@@ -121,10 +131,10 @@ border-radius: 8px; color: white;"> <i class="fa-solid fa-plus mx-1"></i> Add Ne
                     <td class="pt-4">{{ $user->email }}</td>
                     <td class="pt-4">{{ $user->designation }}</td>
                     <td class="pt-4">
-                        <div class="d-flex gap-2">
+                        <div class="d-flex gap-2  ">
                             @if ($user->areas && sizeof($user->areas) > 0)
                             @foreach ($user->areas as $area)
-                            <span style="padding: 2px;border-radius: 5px; background: #68E089; color: white; font-size: 16px;">{{ $area->name }}</span>
+                            <span class="mySpan" style="padding: 2px;border-radius: 5px;; color: white; font-size: 16px;">{{ $area->name }}</span>
                             @endforeach
                             @endif
                         </div>

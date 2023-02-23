@@ -11,7 +11,7 @@
 .row label{
     font-style: normal;
 font-weight: bold;
-font-size: 20px;
+font-size: 16px;
 line-height: 31px;
 color:#292323;
 }

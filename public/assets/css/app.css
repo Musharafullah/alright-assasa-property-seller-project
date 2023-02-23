@@ -17341,7 +17341,7 @@ margin-bottom: 10px;
     .dataTables_wrapper .dataTables_filter,
     .dataTables_wrapper .dataTables_length {
         float: none;
-        text-align: center
+        /* text-align: center */
     }
 
     .dataTables_wrapper .dataTables_filter {

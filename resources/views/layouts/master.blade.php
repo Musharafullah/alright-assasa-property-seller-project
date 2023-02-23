@@ -60,6 +60,11 @@
             color:#C6C0C0 !important;
             border-radius:5px !important
         }
+        /* .nnav{
+            position:fixed;
+            top:0;
+            z-index: 1000;
+        } */
     </style>
 
 </head>
@@ -145,7 +150,7 @@
 
         <div class="main">
 
-            <nav class="navbar navbar-expand navbar-light navbar-bg">
+            <nav class="navbar navbar-expand navbar-light navbar-bg border-bottom ">
 
                 <a class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>

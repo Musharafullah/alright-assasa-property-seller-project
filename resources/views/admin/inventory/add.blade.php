@@ -6,7 +6,7 @@
 .row label{
     font-style: normal;
 font-weight: bold;
-font-size: 20px;
+font-size: 16px !important;
 line-height: 31px;
 color:#292323;
 }
@@ -126,7 +126,7 @@ line-height: 10px;
                         <div class="col-4 mb-2 ">
                             <x-forms.input name="client_mobile" title="Client Mobile:" type="tel" size="11" />
                         </div>
-                        <div class="col-4 mb-2 ">
+                        <div class="col-4 mb-2  " id="plotT">
                             <label>Plot Type:</label>
                             <select class="form-control" name="plot_type"  required>
                           <option value="residential">Residential</option>
@@ -228,7 +228,8 @@ console.log(ss.id)
     let house= document.getElementById("houeseN")
     let agency=document.getElementById('agency')
     let p= document.getElementById("pN")
-    console.log(p)
+    let plotType=document.getElementById("plotT")
+   
       $('.hs').on('change', function() { 
         //   alert(this.value)
    if(this.value==="house"){
@@ -236,17 +237,30 @@ console.log(ss.id)
        console.log(this.value)
        house.innerHTML=`<x-forms.input name="house_number" title="House Number:" type="text" /> 
       
-       `
+       `;
+       plotT.style.display="none"
     //   $("#pN").children().remove()
        
    } 
   else if(this.value==="plot"){
      
        house.innerHTML=`<x-forms.input name="plot_number" title="Plot Number:" type="text" />`
-         
+       plotT.style.display="block"
 
 // $("#houeseN").children().remove()
     
+   }
+   else if(this.value=="flat"){
+    house.innerHTML=`<x-forms.input name="flat_number" title="Flat:" type="text" />`
+    plotT.style.display="none"
+   }
+   else if(this.value=="shop"){
+    house.innerHTML=`<x-forms.input name="shop" title="Shop:" type="text" />`;
+    plotT.style.display="none"
+   }
+   else if(this.value=="plot_file"){
+    house.innerHTML=`<x-forms.input name="plot_file" title="Plot File:" type="text" />`
+    plotT.style.display="block"
    }
    else if(this.value==="direct_client"){
        $("#agency").children().remove()

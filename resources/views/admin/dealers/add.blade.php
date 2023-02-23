@@ -6,7 +6,7 @@
 .row label{
     font-style: normal;
 font-weight: bold;
-font-size: 20px;
+font-size: 16px;
 line-height: 31px;
 color:#292323;
 }
@@ -44,52 +44,51 @@ color:#292323;
                                     @enderror
                                 </span>
                             </div>
-                       </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 mb-2 px-4">
+                            <div class="col-6 mb-2 px-4">
                            
-                        <x-forms.input name="image" accept="image/png, image/gif, image/jpeg,image/jpg"  type="file" title="Image:" />
+                           <x-forms.input name="image" accept="image/png, image/gif, image/jpeg,image/jpg"  type="file" title="Image:" />
+   
+                       
+                           </div>
+                           <div class="col-6 mb-2 px-4">
+                               <label for="inputDesignation" class="form-label">Designation:</label>
+                               <input type="text" name="designation" class="form-control" id="inputDesignation" required>
+                               <span class="text-danger">
+                                   @error('designation')
+                                       {{ $message }}
+                                   @enderror
+                               </span>
+                           </div>
+                           <div class="col-6 mb-2 px-4">
+                               <label for="inputArea" class="form-label">Area:</label>
+                               <select name="area[]" id="inputArea" class="selectpicker" multiple>
+                                   @foreach ($areas as $area)
+                                       <option value="{{ $area->id }}">{{ $area->name }}</option>
+                                   @endforeach
+                               </select>
+                               <span class="text-danger">
+                                   @error('area')
+                                       {{ $message }}
+                                   @enderror
+                               </span>
+                           </div>
+   
+                           <div class="col-6 mb-2 px-4">
+                               <label for="inputAddress" class="form-label">Address:</label>
+                               <input type="text" name="address" class="form-control" id="inputAddress">
+                               <span class="text-danger">
+                                   @error('address')
+                                       {{ $message }}
+                                   @enderror
+                               </span>
+                           </div>
+                       </div>
+                       
+                    </div>
 
                     
-                        </div>
-                        <div class="col-6 mb-2 px-4">
-                            <label for="inputDesignation" class="form-label">Designation:</label>
-                            <input type="text" name="designation" class="form-control" id="inputDesignation" required>
-                            <span class="text-danger">
-                                @error('designation')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-6 mb-2 px-4">
-                            <label for="inputArea" class="form-label">Area:</label>
-                            <select name="area[]" id="inputArea" class="selectpicker" multiple>
-                                @foreach ($areas as $area)
-                                    <option value="{{ $area->id }}">{{ $area->name }}</option>
-                                @endforeach
-                            </select>
-                            <span class="text-danger">
-                                @error('area')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="col-6 mb-2 px-4">
-                            <label for="inputAddress" class="form-label">Address:</label>
-                            <input type="text" name="address" class="form-control" id="inputAddress">
-                            <span class="text-danger">
-                                @error('address')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
+                   
 
                     <div class="row mt-5">
                         <!-- submit Button -->
