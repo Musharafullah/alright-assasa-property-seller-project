@@ -150,7 +150,7 @@
 
         <div class="main">
 
-            <nav class="navbar navbar-expand navbar-light navbar-bg border-bottom nnav fixed-top">
+            <nav class="navbar navbar-expand navbar-light navbar-bg border-bottom ">
 
                 <a class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>
